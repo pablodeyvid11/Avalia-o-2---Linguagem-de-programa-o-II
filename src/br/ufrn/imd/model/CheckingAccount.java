@@ -24,11 +24,13 @@ public class CheckingAccount implements ITaxable {
     }
 
 
-    public void cashOut(Double value) {
-        if(value <= this.balance) {
+    public Boolean cashOut(Double value) {
+        if (value <= this.balance) {
             this.balance -= value;
+            return true;
         } else {
             System.out.println("Insufficient funds");
+            return false;
         }
     }
 
@@ -37,8 +39,9 @@ public class CheckingAccount implements ITaxable {
     }
 
     public void transfer(Double value, CheckingAccount destination) {
-        this.cashOut(value);
-        destination.cashIn(value);
+        if (this.cashOut(value)) {
+            destination.cashIn(value);
+        }
     }
 
     @Override
