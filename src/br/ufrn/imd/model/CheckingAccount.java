@@ -46,6 +46,6 @@ public class CheckingAccount implements ITaxable {
 
     @Override
     public Double calculateTax() {
-        return this.balance * 0.38;
+        return this.balance * 0.0038;
     }
 }

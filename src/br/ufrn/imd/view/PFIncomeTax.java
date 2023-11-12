@@ -9,6 +9,7 @@ import br.ufrn.imd.model.Person;
 public class PFIncomeTax {
     public static void main(String[] args) {
         PersonDAO daoP = new PersonDAO();
+
         CheckingAccount cc1 = new CheckingAccount("1020-5", "100.231-1", 0.0);
         LifeInsurance sv1 = new LifeInsurance(1, "Maria da Silva", 10000);
         Person p1 = new Person("Roberto Carlos", 500.0, cc1, sv1);
@@ -36,6 +37,10 @@ public class PFIncomeTax {
         System.out.println();
 
         p2.getAccount().transfer(300.0, cc3);
+
+        System.out.println();
+
+        p3.getAccount().cashOut(100.0);
 
         daoP.listPeople();
 
